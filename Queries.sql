@@ -12,7 +12,7 @@ select first_name ||' '||last_name AS Full_Name,email from hc.users;
 select first_name ||' '||last_name AS Users from hc.users WHERE is_active='FALSE';
 
 -- iv. Users whose first_name starts with 'A' and last_name ends with 'i'
-SELECT *FROM hc.users WHERE first_name LIKE 'a%' AND last_name LIKE '%i';
+SELECT *FROM hc.users WHERE first_name LIKE 'A%' AND last_name LIKE '%i';
 
 -- v. Users whose email contains '@example'
 SELECT *FROM hc.users WHERE email LIKE '%@example%';

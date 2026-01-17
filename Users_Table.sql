@@ -99,8 +99,18 @@ VALUES
     (SELECT role_id FROM hc.roles WHERE role_name='Manager')
 )
 
+INSERT INTO hc.users
+(user_id, first_name, last_name, email, password, created_by, modified_by, is_active, is_deleted, birth_date, address, mobile_number)
+VALUES
+(
+    gen_random_uuid(), 'Manya', 'Sojitra', 'ManyaSojitra@gmail.com', crypt('pass123', gen_salt('bf')), 
+    NULL, NULL, TRUE, FALSE, '2017-08-05', 'Ahemdabad', '8976509865'
+)
+	
+	
+
 	DELETE FROM hc.users;
-	select*from hc.users
+	SELECT * FROM hc.users;
 
 	UPDATE hc.users SET is_active = FALSE WHERE first_name='arsi'; 
 
