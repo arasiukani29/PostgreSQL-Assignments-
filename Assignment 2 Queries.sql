@@ -105,15 +105,13 @@ select * from hc.sub_categories;
 
 -- a. Fetch roles that have at least one user
 
-	SELECT role_name FROM hc.roles r WHERE EXISTS (SELECT user_id from hc.users u WHERE u.role_id = r.role_id );
+	SELECT role_name FROM hc.roles r WHERE EXISTS 
+		(SELECT user_id from hc.users u WHERE u.role_id = r.role_id );
 
-	SELECT r.role_id, r.role_name
-FROM hc.roles r
-WHERE EXISTS (
+	SELECT r.role_id, r.role_name FROM hc.roles r WHERE EXISTS (
     SELECT 1
     FROM hc.users u
-    WHERE u.role_id = r.role_id
-);
+    WHERE u.role_id = r.role_id);
 
 
 -- b. Fetch service types that have categories
@@ -209,7 +207,7 @@ WHERE EXISTS (
 
 -- a. Create an index on users.email
 	CREATE INDEX ind_email ON hc.users(email);
-	SELECT * FROM hc.users WHERE email = 'arasiukani23@gmail.com';
+	EXPLAIN SELECT * FROM hc.users WHERE email = 'arasiukani23@gmail.com';
 
 
 
